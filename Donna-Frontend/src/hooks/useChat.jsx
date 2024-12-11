@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-const backendUrl = "https://donnabackend.onrender.com";
+const backendUrl = "https://donna-backend.onrender.com";
 
 const ChatContext = createContext();
 
