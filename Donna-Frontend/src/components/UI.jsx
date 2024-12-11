@@ -68,7 +68,7 @@ export const UI = ({ hidden, ...props }) => {
           const timeMatch = text.match(/(\d{1,2})(:\d{2})?\s?(am|pm|AM|PM|a\.m\.|p\.m\.|A\.M\.|P\.M\.)?/);
 
           if (!timeMatch) {
-            chat("No valid time found in the text. Please specify a time.");
+            console.log("No valid time found in the text. Please specify a time.");
             return;
           }
 
@@ -117,7 +117,7 @@ export const UI = ({ hidden, ...props }) => {
           if (result.message == "Event created successfully!") {
             chat("Please say that reminder is added successfully.");
           } else {
-            chat("Please say Sorry, there was an issue setting up the reminder. Please try again.");
+            console.log("Please say Sorry, there was an issue setting up the reminder. Please try again.");
           }
         } catch (error) {
           console.error("Error creating event:", error);
@@ -127,7 +127,7 @@ export const UI = ({ hidden, ...props }) => {
           // searching for the email provided by the user
           const emailMatch = text.match(/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/);
           if (!emailMatch) {
-            chat("No valid email address found in the text.");
+            console.log("No valid email address found in the text.");
             return;
           }
           const recipientEmail = emailMatch[0];
@@ -153,7 +153,7 @@ export const UI = ({ hidden, ...props }) => {
           if (result.message == "Email sent successfully!") {
             chat("Please say that Email has been sent successfully.");
           } else {
-            chat("Please say Sorry, there was an issue sending your email. Please try again.");
+            console.log("Please say Sorry, there was an issue sending your email. Please try again.");
           }
         } catch (error) {
           console.error("Error sending email:", error);
