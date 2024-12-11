@@ -114,8 +114,8 @@ export const UI = ({ hidden, ...props }) => {
           });
 
           const result = await response.json();
-          if (result.message === "Event created successfully!") {
-            chat("Please say reminder is added.");
+          if (result.message == "Event created successfully!") {
+            chat("Please say that reminder is added successfully.");
           } else {
             chat("Please say Sorry, there was an issue setting up the reminder. Please try again.");
           }
@@ -150,8 +150,8 @@ export const UI = ({ hidden, ...props }) => {
             body: JSON.stringify(emailData),
           });
           const result = await response.json();
-          if (result.message === "Email sent successfully!") {
-            chat("Please say Email has been sent successfully.");
+          if (result.message == "Email sent successfully!") {
+            chat("Please say that Email has been sent successfully.");
           } else {
             chat("Please say Sorry, there was an issue sending your email. Please try again.");
           }
