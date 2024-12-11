@@ -226,9 +226,10 @@ const sendMessage = async () => {
           startTime = new Date(`${month} ${day}, ${year}`);
         }
 
-        const timeMatch = text.match(/(\d{1,2})(:\d{2})?\s?(am|pm|a\.m\.|p\.m\.)?/i);
+        const timeMatch = text.match(/(\d{1,2})(:\d{2})?\s?(am|pm|a\.m\.\|p\.m\.)?/i);
         if (!timeMatch) {
           console.log("No valid time found in the text. Please specify a time.");
+          input.current.value = ""; // Clear the input field
           return;
         }
 
@@ -270,6 +271,7 @@ const sendMessage = async () => {
         } else {
           console.log("Sorry, there was an issue setting up the reminder. Please try again.");
         }
+        input.current.value = ""; // Clear the input field
         return;
       }
 
@@ -277,6 +279,7 @@ const sendMessage = async () => {
         const emailMatch = text.match(/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/);
         if (!emailMatch) {
           console.log("No valid email address found in the text.");
+          input.current.value = ""; // Clear the input field
           return;
         }
 
@@ -302,6 +305,7 @@ const sendMessage = async () => {
         } else {
           console.log("Sorry, there was an issue sending your email. Please try again.");
         }
+        input.current.value = ""; // Clear the input field
         return;
       }
 
@@ -310,6 +314,7 @@ const sendMessage = async () => {
 
       if (containsNoteKeyword) {
         chat("Please say that upload your files using the Choose file button.");
+        input.current.value = ""; // Clear the input field
         return;
       }
 
@@ -323,18 +328,20 @@ const sendMessage = async () => {
         const data = await response.text();
         const responseMessage = `Please say this content: ${data}`;
         chat(responseMessage);
+        input.current.value = ""; // Clear the input field
         return;
       }
 
       chat(text); // Fallback if no conditions match
       console.log(text);
+      input.current.value = ""; // Clear the input field
     } catch (error) {
       console.error("Error processing message:", error);
+      input.current.value = ""; // Clear the input field
     }
-
-    input.current.value = ""; // Clear the input field
   }
 };
+
 
   
 let isNoting = false;
