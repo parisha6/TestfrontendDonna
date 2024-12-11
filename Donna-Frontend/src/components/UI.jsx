@@ -311,7 +311,7 @@ const sendMessage = async () => {
 
       const containsNoteKeyword = noteKeywords.some((keyword) => text.includes(keyword));
       const containsKBKeyword = kbKeywords.some((keyword) => text.includes(keyword));
-
+      setEnableFileOptions(containsNoteKeyword);
       if (containsNoteKeyword) {
         chat("Please say that upload your files using the Choose file button.");
         input.current.value = ""; // Clear the input field
